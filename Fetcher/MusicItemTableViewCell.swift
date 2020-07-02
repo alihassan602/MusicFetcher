@@ -6,4 +6,15 @@
 //  Copyright © 2020 Ali Hassan. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MusicItemTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    public static let IDENTIFIER = "MusicItemTableViewCell"
+    
+    public func setupWithMusicItem(_ item: MusicItem) {
+        titleLabel.text = item.trackName
+    }
+    
+}

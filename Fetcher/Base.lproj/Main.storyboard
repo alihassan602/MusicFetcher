@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,67 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Fetcher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="j0Y-Iv-HQC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-Oz-xVb">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicItemTableViewCell" id="bsl-kv-XDR" customClass="MusicItemTableViewCell" customModule="Fetcher" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="37.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bsl-kv-XDR" id="z9O-Gd-TIh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yA2-AW-j8l">
+                                                    <rect key="frame" x="16" y="8" width="382" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yA2-AW-j8l" firstAttribute="top" secondItem="z9O-Gd-TIh" secondAttribute="top" constant="8" id="UTR-KB-OWZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="yA2-AW-j8l" secondAttribute="trailing" constant="16" id="YG1-6A-c8U"/>
+                                                <constraint firstItem="yA2-AW-j8l" firstAttribute="leading" secondItem="z9O-Gd-TIh" secondAttribute="leading" constant="16" id="a6n-AD-X6e"/>
+                                                <constraint firstAttribute="bottom" secondItem="yA2-AW-j8l" secondAttribute="bottom" constant="8" id="h6t-4Y-2Yw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="yA2-AW-j8l" id="d3e-0K-Nrg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="j0Y-Iv-HQC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VBG-1e-LSb"/>
+                            <constraint firstItem="j0Y-Iv-HQC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="caY-Du-hHz"/>
+                            <constraint firstItem="ssS-Oz-xVb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="f94-6G-n10"/>
+                            <constraint firstItem="ssS-Oz-xVb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ggg-3l-5W9"/>
+                            <constraint firstItem="ssS-Oz-xVb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gvj-l5-kHq"/>
+                            <constraint firstItem="ssS-Oz-xVb" firstAttribute="top" secondItem="j0Y-Iv-HQC" secondAttribute="bottom" id="uKW-8x-sPe"/>
+                            <constraint firstItem="j0Y-Iv-HQC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yvm-ti-hcN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="j0Y-Iv-HQC" id="he0-2C-31K"/>
+                        <outlet property="tableView" destination="ssS-Oz-xVb" id="q2G-Fr-tuq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
